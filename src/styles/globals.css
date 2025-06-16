@@ -1,0 +1,192 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-gradient-to-b from-ocean-900 via-ocean-800 to-ocean-700 min-h-screen overflow-hidden;
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+@layer components {
+  .aquarium-container {
+    @apply relative w-full h-screen;
+    background-image: 
+      url('https://raw.githubusercontent.com/SochavaAG/example-mycode/master/pens/aquarium/images/bg-2.jpg'),
+      radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.2) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(107, 70, 193, 0.15) 0%, transparent 50%),
+      radial-gradient(circle at 40% 80%, rgba(6, 182, 212, 0.15) 0%, transparent 50%);
+    background-size: cover, 100% 100%, 100% 100%, 100% 100%;
+    background-position: center, center, center, center;
+    background-repeat: no-repeat;
+    background-blend-mode: overlay, normal, normal, normal;
+  }
+  
+  .water-effect {
+    @apply absolute inset-0 pointer-events-none;
+    background: linear-gradient(
+      45deg,
+      transparent 30%,
+      rgba(59, 130, 246, 0.1) 50%,
+      transparent 70%
+    );
+    animation: wave 8s ease-in-out infinite;
+  }
+  
+  .sidebar-panel {
+    @apply bg-ocean-800/80 backdrop-blur-sm border border-ocean-600/50 rounded-lg p-4 shadow-lg;
+  }
+  
+  .fish-avatar {
+    @apply absolute cursor-pointer transition-transform hover:scale-110;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+  }
+  
+  .fishing-rod {
+    @apply absolute top-0 left-1/2 transform -translate-x-1/2 z-50;
+  }
+}
+
+@keyframes wave {
+  0%, 100% { 
+    transform: translateX(-100px) rotate(0deg); 
+    opacity: 0.3;
+  }
+  50% { 
+    transform: translateX(100px) rotate(180deg); 
+    opacity: 0.6;
+  }
+}
+
+.bubble {
+  @apply absolute rounded-full bg-white/20;
+  animation: bubble 6s linear infinite;
+}
+
+.tooltip {
+  @apply absolute bg-ocean-900/90 text-white px-2 py-1 rounded text-sm pointer-events-none z-10;
+}
+
+.text-shadow {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.creature-trail {
+  filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.6));
+}
+
+.enhanced-fish {
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3)) brightness(1.05);
+  transition: all 0.3s ease;
+}
+
+.enhanced-fish:hover {
+  filter: drop-shadow(0 6px 12px rgba(107, 70, 193, 0.4)) brightness(1.15);
+}
+
+.enhanced-fish.dragging {
+  filter: drop-shadow(0 8px 16px rgba(107, 70, 193, 0.6)) brightness(1.2) saturate(1.3);
+  z-index: 50 !important;
+}
+
+.enhanced-fish {
+  cursor: grab;
+}
+
+.enhanced-fish.dragging {
+  cursor: grabbing;
+}
+
+/* Sound Controls Styles */
+.bubble-slider {
+  background: transparent;
+  outline: none;
+}
+
+.bubble-slider::-webkit-slider-track {
+  height: 8px;
+  border-radius: 4px;
+  background: transparent;
+}
+
+.bubble-slider::-webkit-slider-thumb {
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #22d3ee, #0891b2);
+  cursor: pointer;
+  box-shadow: 0 0 0 3px rgba(34, 211, 238, 0.2), 0 4px 8px rgba(34, 211, 238, 0.3);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+  position: relative;
+  margin-top: -5px;
+}
+
+.bubble-slider::-webkit-slider-thumb:hover {
+  background: radial-gradient(circle, #0891b2, #0e7490);
+  box-shadow: 0 0 0 6px rgba(34, 211, 238, 0.3), 0 6px 16px rgba(34, 211, 238, 0.5);
+  transform: scale(1.2);
+}
+
+.bubble-slider::-webkit-slider-thumb:active {
+  transform: scale(1.1);
+  box-shadow: 0 0 0 8px rgba(34, 211, 238, 0.4), 0 8px 20px rgba(34, 211, 238, 0.6);
+}
+
+.bubble-slider::-moz-range-track {
+  height: 8px;
+  border-radius: 4px;
+  background: transparent;
+  border: none;
+}
+
+.bubble-slider::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #22d3ee, #0891b2);
+  cursor: pointer;
+  box-shadow: 0 0 0 3px rgba(34, 211, 238, 0.2), 0 4px 8px rgba(34, 211, 238, 0.3);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.bubble-slider::-moz-range-thumb:hover {
+  background: radial-gradient(circle, #0891b2, #0e7490);
+  box-shadow: 0 0 0 6px rgba(34, 211, 238, 0.3), 0 6px 16px rgba(34, 211, 238, 0.5);
+  transform: scale(1.2);
+}
+
+.bubble-slider::-moz-range-thumb:active {
+  transform: scale(1.1);
+  box-shadow: 0 0 0 8px rgba(34, 211, 238, 0.4), 0 8px 20px rgba(34, 211, 238, 0.6);
+}
+
+/* Volume slider panel animation */
+.volume-slider-panel {
+  transform-origin: left center;
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(34, 211, 238, 0.3);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), 0 0 20px rgba(34, 211, 238, 0.2);
+}
+
+/* Legacy slider support */
+.slider-enabled::-webkit-slider-thumb {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #06b6d4, #0891b2);
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(6, 182, 212, 0.3);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.2s ease;
+}
+
+.slider-enabled::-webkit-slider-thumb:hover {
+  background: linear-gradient(135deg, #0891b2, #0e7490);
+  box-shadow: 0 4px 12px rgba(6, 182, 212, 0.5);
+  transform: scale(1.1);
+}
