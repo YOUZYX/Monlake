@@ -16,17 +16,18 @@ import { soundManager } from '../../utils/soundManager';
 // List of available Monanimal images
 const MONANIMAL_IMAGES = [
   '/Monanimals/4ksalmonad.png',
-  '/Monanimals/Chog.png',
-  '/Monanimals/cutlandak2.png',
+  //'/Monanimals/Chog.png',
+  //'/Monanimals/cutlandak2.png',
   '/Monanimals/fish_nad.png',
-  '/Monanimals/MolandakHD.png',
-  '/Monanimals/molandak_skilly.PNG',
-  '/Monanimals/1.png',
-  '/Monanimals/2.png',
-  '/Monanimals/3.png',
-  '/Monanimals/4.png',
-  '/Monanimals/5.png',
-  '/Monanimals/6.png',
+  //'/Monanimals/MolandakHD.png',
+  //'/Monanimals/molandak_skilly.PNG',
+  '/Monanimals/monanimal_1.png',
+  '/Monanimals/monanimal_2.png',
+  '/Monanimals/monanimal_3.png',
+  '/Monanimals/monanimal_4.png',
+  '/Monanimals/monanimal_5.png',
+  '/Monanimals/monanimal_6.png',
+  '/Monanimals/monanimal_7.png',
 ];
 
 interface SpecialCreature {
